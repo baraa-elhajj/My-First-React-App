@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface MyButtonProperties {
   /** The text to display inside the button */
   title: string;
@@ -18,12 +20,17 @@ function MySecondButton(props: MyButtonProperties) {
 }
 
 export default function App() {
+  const [count, setCount] = useState(0);
+
   return (
       <>
         <div>
           <h1>My First React App</h1>
           <MyButton title="Click Me!"/>
           <MySecondButton disabled={true} title="Cannot Click Me!"/>
+          <button onClick={ () => setCount(count + 1)}>Counter</button>
+          <button onClick={ () => setCount(0)}>Clear</button>
+          <h3>Count is {count}</h3>
         </div>
       </>
   );
