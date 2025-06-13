@@ -18,6 +18,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 - Union types can take several data types. Types are separated by a pipe "|".
 
-- useState(): lets you remember things. When data changes, it re-renders the UI.
+- useState(): lets you remember things. When data changes, it re-renders the UI.<br>
+  **Usage**: `const [state, setState] = useState(initialState);`
 
--
+- useReducer(): manages complex state logic in a component (based on conditions) — especially when the state has multiple values or depends on previous state. It takes a reducer function that specifies how it should work.<br>
+  **Usage**: `const [state, dispatch] = useReducer(reducerFunction, initialState);`
