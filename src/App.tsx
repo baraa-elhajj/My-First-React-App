@@ -11,9 +11,9 @@ function MyButton({title}: {title: string}) {
   );
 }
 
-function MySecondButton({title, disabled}: MyButtonProperties) {
+function MySecondButton(props: MyButtonProperties) {
   return (
-    <button disabled={disabled}>{title}</button>
+    <button disabled={props.disabled}>{props.title}</button>
   );
 }
 
@@ -23,8 +23,7 @@ export default function App() {
         <div>
           <h1>My First React App</h1>
           <MyButton title="Click Me!"/>
-          <br /><br />
-          <MySecondButton disabled={true} title="Can't Click Me!"/>
+          <MySecondButton disabled={true} title="Cannot Click Me!"/>
         </div>
       </>
   );
