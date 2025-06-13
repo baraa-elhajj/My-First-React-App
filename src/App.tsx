@@ -56,10 +56,15 @@ export default function App() {
       <>
         <div>
           <h1>My First React App</h1>
+          <h2>Custom Button Components</h2>
           <MyButton title="Click Me!"/>
           <MySecondButton disabled={true} title="Cannot Click Me!"/>
-          <button onClick={ () => setCount(count + 1)}>Counter</button>
-          <button onClick={ () => setCount(0)}>Clear</button>
+        </div>
+
+        <div>
+          <h2>Normal Counter</h2>
+          <button onClick={() => setCount(count + 1)}>+</button>
+          <button onClick={() => setCount(0)}>Reset</button>
           <h3>Count is {count}</h3>
         </div>
 
