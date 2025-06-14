@@ -1,3 +1,4 @@
+import { MonitorCog, Moon, Sun } from "lucide-react";
 import { createContext, useContext, useReducer, useState } from "react";
 
 interface MyButtonProperties {
@@ -106,6 +107,10 @@ export default function App() {
           <ThemeContext value={theme}>
             <MyComponent />
           </ThemeContext>
+          <button onClick={() => setTheme('light')}><Sun size={24}/></button>
+          <button onClick={() => setTheme('dark')}><Moon size={24}/></button>
+          <button onClick={() => setTheme('system')}><MonitorCog size={24}/></button>
+        </div>
       </>
   );
 }
