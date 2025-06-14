@@ -23,3 +23,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 - useReducer(): manages complex state logic in a component (based on conditions) — especially when the state has multiple values or depends on previous state. It takes a reducer function that specifies how it should work.<br>
   **Usage**: `const [state, dispatch] = useReducer(reducerFunction, initialState);`
+
+- useContext(): allows a component to access global data/context — like theme, user info, or language etc. — without passing properties down manually at every level. Context components are created using `createContext(MyContext);`<br>
+  **Usage**: `const value = useContext(MyContext);`
