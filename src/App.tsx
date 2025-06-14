@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 interface MyButtonProperties {
   /** The text to display inside the button */
@@ -19,6 +19,7 @@ function MySecondButton(props: MyButtonProperties) {
   );
 }
 
+// useReducer() example
 interface State {
   count: number
 };
@@ -40,6 +41,22 @@ function stateReducer(state: State, action: CounterAction): State {
   }
 }
 
+// useContext() example
+type Theme = "light" | "dark" | "system"
+const ThemeContext = createContext<Theme>("system");
+
+const useGetTheme = () => useContext(ThemeContext);
+
+function MyComponent() {
+  const theme = useGetTheme();
+
+  return (
+    <div>
+      <p>Current theme: {theme}</p>
+    </div>
+  )
+}
+
 export default function App() {
   // useState() hook
   const [count, setCount] = useState(0);
@@ -51,6 +68,9 @@ export default function App() {
   const substract = () => dispatch({ type: "setCount", value: state.count - 1 });
   const substractFive = () => dispatch({ type: "setCount", value: state.count - 5 });
   const reset = () => dispatch({type: "reset"});
+
+  // useContext() example
+  const [theme, setTheme] = useState<Theme>('light');
 
   return (
       <>
@@ -77,6 +97,15 @@ export default function App() {
           <button onClick={reset}>Reset</button>
           <h3>Count is {state.count}</h3>
         </div>
+
+        <div>
+          <h2>Display Current Theme</h2>
+          <h4>Without &lt;ThemeContext&gt;:</h4>
+          <MyComponent />
+          <h4>Wrapped by &lt;ThemeContext&gt;:</h4>
+          <ThemeContext value={theme}>
+            <MyComponent />
+          </ThemeContext>
       </>
   );
 }
