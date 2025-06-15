@@ -103,10 +103,12 @@ export default function App() {
           <h2>Display Current Theme</h2>
           <h4>Without &lt;ThemeContext&gt;:</h4>
           <MyComponent />
+          
           <h4>Wrapped by &lt;ThemeContext&gt;:</h4>
           <ThemeContext value={theme}>
             <MyComponent />
           </ThemeContext>
+          
           <button onClick={() => setTheme('light')}><Sun size={24}/></button>
           <button onClick={() => setTheme('dark')}><Moon size={24}/></button>
           <button onClick={() => setTheme('system')}><MonitorCog size={24}/></button>
